@@ -1,5 +1,5 @@
 from PyQt5 import QtWidgets
-from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel
+from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel, QPushButton
 
 import sys
 
@@ -21,12 +21,23 @@ def main():
     lbl_hello.move(50, 50) # set x, y position to place the label from top-left corner
     lbl_hello.setStyleSheet("border: 1px solid red;") # set border style
 
+    # Add button
+    btn_click = QPushButton(win)
+    btn_click.setText("Click here")
+    btn_click.move(75, 75)
+    # connect to button click func
+    btn_click.clicked.connect(button_clicked)
+
+
     # show the window
     win.show()
     
     # for exit call 
     sys.exit(app.exec_())
 
+# button click func
+def button_clicked():
+    print("button clicked!")
 
 # call main func
 main()
